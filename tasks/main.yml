@@ -19,5 +19,5 @@
 
 - name: Self-upgrade npm to wanted version if needed
   when: (npm_version is defined) and (npm_version)
-        and (current_npm_version.rc != wanted_npm_version.rc)
+        and (current_npm_version.stdout != wanted_npm_version.stdout)
   command: "npm install --global npm@\"{{ npm_version }}\""
