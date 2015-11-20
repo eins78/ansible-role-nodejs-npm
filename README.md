@@ -2,8 +2,8 @@
 
 Installs configurable versions of:
 
-- `nodejs`
-- `npm`
+- `nodejs` (default: 4.x)
+- `npm` (default: use version bundled with nodejs)
 
 on:
 

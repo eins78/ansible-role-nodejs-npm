@@ -9,4 +9,4 @@ nodejs_version: "4.x"
 # A version like '1.2.3' or a release tag like 'latest' or any other expression
 # that npm understands (see <https://docs.npmjs.com/misc/semver>).
 # Can be omited/set to false to use the version bundled with nodejs.
-npm_version: next
+npm_version: False
