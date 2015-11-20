@@ -1,6 +1,6 @@
 # ansible-role-nodejs
 
-Installs current versions of:
+Installs configurable versions of:
 
 - `nodejs`
 - `npm`
