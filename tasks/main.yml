@@ -7,5 +7,17 @@
 - name: Install node.js from nodesource repository
   include: "../sub_roles/nodejs-nodesource/tasks/main.yml"
 
-- name: Self-upgrade npm to current version
-  command: "npm install --global npm@latest"
+- name: Check wanted npm version
+  when: (npm_version is defined) and (npm_version)
+  command: "npm view npm@\"{{ npm_version }}\" version"
+  register: wanted_npm_version
+
+- name: Check current npm version
+  when: (npm_version is defined) and (npm_version)
+  command: "npm --version"
+  register: current_npm_version
+
+- name: Self-upgrade npm to wanted version if needed
+  when: (npm_version is defined) and (npm_version)
+        and (current_npm_version.rc != wanted_npm_version.rc)
+  command: "npm install --global npm@\"{{ npm_version }}\""
